@@ -1,7 +1,27 @@
-﻿@{
-    ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿@model IEnumerable<XdUniversity.ViewModels.EnrollmentDateGroup>
 
-<p>Use this area to provide additional information.</p>
+@{ 
+    ViewBag.Title = "学生统计";
+}
+<h2>学生统计</h2>
+<table>
+    <tr>
+        <th>
+            注册日期
+        </th>
+        <th>
+            学生数
+        </th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentDate)
+            </td>
+            <td>
+                @item.StudentCount
+            </td>
+        </tr>
+    }
+</table>
